@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<script> var csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRwkBfZhf8T4_Squ1nFGutx8SanMe4GtidUlUfRtcx21-a41LpRNYmk0Hb1pbjEFuH0gfXfKfYI6Fr/pub?gid=0&single=true&output=csv'</script>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="siteTitle">Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Archivo, Helvetica, Arial, sans-serif;
+            background-color: #EBEBEB;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-variation-settings: "wdth" 125;
+            font-family: Archivo;
+        }
+
+        #combo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            background-color: white;
+            width: 300px;
+            border-radius: 35px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 25px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <img class="siteLogo" style="height: 100px; width: 100px; align-self: center; margin-bottom: 20px;" src="https://testground.lucaspeinado.es/holaprovider/hola.png">
+    <h1 class="siteTitle">
+        holaLinks
+    </h1>
+    <div class="siteDescription">
+        <p lang="es">Parece que hay un error. ¿Has conectado correctamente la tabla de datos?</p>
+        <p lang="en">It seems to be an error. Have you connected the data table correctly?</p>
+        <p lang="fr">Il semble y avoir une erreur. Avez-vous correctement connecté le tableau de données?</p>
+        <p lang="de">Es scheint einen Fehler zu geben. Haben Sie die Datenbanktabelle korrekt verbunden?</p>
+        <p lang="it">Sembra esserci un errore. Hai collegato correttamente la tabella dei dati?</p>
+        <p lang="pt">Parece haver um erro. Você conectou corretamente a tabela de dados?</p>
+        <p lang="ru">Похоже, что произошла ошибка. Вы правильно подключили таблицу данных?</p>
+        <p lang="zh">似乎出现了错误。您是否正确连接了数据表？</p>
+        <p lang="ja">エラーが発生しているようです。データテーブルを正しく接続しましたか？</p>   
+        <p lang="ko">오류가 발생한 것 같습니다. 데이터 테이블을 올바르게 연결했습니까? </p>
+        <p lang="ar">يبدو أن هناك خطأ. هل قمت بتوصيل جدول البيانات بشكل صحيح؟</p>
+        <p lang="hi">ऐसा लगता है कि एक त्रुटि है। क्या आपने डेटा तालिका को सही ढंग से कनेक्ट किया है? </p>
+        <p lang="bn">এটা একটি ত্রুটি হওয়া মনে হচ্ছে। আপনি ডেটা টেবিলটি সঠিকভাবে সংযুক্ত করেছেন কিনা? </p>
+        <p lang="pa">ਇਸ ਵਿੱਚ ਕੋਈ ਗਲਤੀ ਲੱਗਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਡੇਟਾ ਟੇਬਲ ਨੂੰ ਠੀਕ ਤਰ੍ਹਾਂ ਕੁਨੈਕਟ ਕੀਤਾ ਹੈ? </p>
+        <p lang="ca">Sembla que hi ha un error. Heu connectat correctament la taula de dades? </p>
+        <p lang="eu">Akats bat dagoela dirudi. Datu taula zuzen konektatu duzu? </p>
+        <p lang="gl">Parece que hai un erro. Conectaches correctamente a táboa de datos? </p>
+        <p lang="xh">Kuyacaca ukuba kukho ixabiso. Uyakwazi ukukhokha itafula yedatha ngokwaneleyo? </p>
+        <p lang="zu">Kuyacaca ukuthi kukhona iphutha. Uyakwazi ukukhokha itafula yedatha ngokwanele? </p>
+        <p lang="ny">Kuyacaca kuti kuli chilengedwe. Umaliza kuyendetsa tebulo la deta bwino? </p>
+        <p lang="sn">Kuyacaca kuti kune chikanganwahama. Uchakwanisa kugadzirisa tebula redata zvakanaka? </p>     
+    </div>
+
+    <div id="links"><a href="https://github.com/lucasengithub/holalinks"><h2>Ayuda</h2></a></div>
+    
+</body>
+<script>
+// Obtenga el idioma del navegador
+var userLang = (navigator.language || navigator.userLanguage).substring(0, 2); 
+
+// Ocultar todos los párrafos
+var paragraphs = document.querySelectorAll('.siteDescription p');
+for (var i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].style.display = 'none';
+}
+
+// Mostrar solo el párrafo en el idioma del usuario
+var userLangParagraph = document.querySelector('.siteDescription p[lang="' + userLang + '"]');
+if (userLangParagraph) {
+    userLangParagraph.style.display = 'block';
+
+    Papa.parse(csvUrl, {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        complete: function(results) {
+            var data = results.data;
+            var linksDiv = document.getElementById('links');
+            var comboDiv = null;
+            var cardGroupDiv = null;
+
+            // Recorrer los datos
+            for (var i = 4; i < data.length; i++) { // Empieza a contar desde la fila 4
+                var row = data[i];
+
+                // Si la fila está vacía, crear un nuevo grupo de tarjetas
+                if (Object.values(row).every(x => (x === null || x === ''))) {
+                    comboDiv = document.createElement('div');
+                    comboDiv.id = 'combo';
+                    linksDiv.appendChild(comboDiv);
+                    cardGroupDiv = null;
+                } else {
+                    // Crear una tarjeta con el contenido de cada columna
+                    var cardDiv = document.createElement('div');
+                    cardDiv.style.color = row.COLOR;
+                    cardDiv.style.backgroundColor = row.BG_COLOR;
+                    cardDiv.innerHTML = '<img src="' + row.LOGO + '" alt="Logo"><p>' + row.HOLA + '</p><a href="' + row.LINK + '">Link</a>';
+                    if (!cardGroupDiv) {
+                        cardGroupDiv = document.createElement('div');
+                        comboDiv.appendChild(cardGroupDiv);
+                    }
+                    cardGroupDiv.appendChild(cardDiv);
+                }
+            }
+        }
+    });
+}
+</script>
+</html>
